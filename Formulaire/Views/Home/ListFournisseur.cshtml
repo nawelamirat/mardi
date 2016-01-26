@@ -1,0 +1,20 @@
+﻿@model List<Formulaire.Models.Fournisseur>
+
+@{
+    ViewBag.Title = "ListFournisseur";
+}
+
+
+
+<h2>ListFournisseur</h2>
+
+@{
+    foreach (var fournisseur in Model)
+    {
+        <p> nom =  @fournisseur.NomF </p>
+
+
+    }
+
+
+}

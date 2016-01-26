@@ -1,0 +1,17 @@
+﻿@model Formulaire.Models.Fournisseur
+@{
+    ViewBag.Title = "CreateFournisseur";
+}
+
+<h2>CreateFournisseur</h2>
+
+@using (Html.BeginForm())
+{
+    <div>
+    @Html.LabelFor(model => model.NomF)
+    @Html.TextBoxFor(model => model.NomF )
+        <br />
+        <input type="submit" value="Valider" />
+    </div>
+}
+
