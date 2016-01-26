@@ -16,7 +16,18 @@ namespace Formulaire.Controllers
         }
         public ActionResult CreateArticle()
         {
-            return View();
+            IDal dal = new Dal();
+            Article article = new Article();
+            ViewBag.ListeDesFournisseurs = new SelectList(dal.getAllFournisseurs(), "Id", "NomF");
+            return View(article);
+        }
+        [HttpPost]
+        public ActionResult CreateArticle(Article article)
+        {
+           IDal dal = new Dal();
+           Fournisseur fournisseur =  dal.getFournisseurById(Int32.Parse(Request.Form["Fournisseur"]));
+           dal.CreateArticle(article.Nom, fournisseur);
+           return View(article);
         }
 
         public ActionResult ListArticle()
@@ -29,7 +40,9 @@ namespace Formulaire.Controllers
         }
         public ActionResult CreateFournisseur()
         {
+
             Fournisseur fournisseur = new Fournisseur();
+
             return View(fournisseur);
         }
         [HttpPost]
